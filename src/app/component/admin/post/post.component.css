@@ -1,0 +1,17 @@
+.icon-arrow {
+    vertical-align: middle;
+    margin-left: 5px;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  .table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #343a40;
+    color: #fff;
+  }
+  

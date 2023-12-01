@@ -1,0 +1,100 @@
+<br />
+<br />
+<br />
+
+<div class="d-flex justify-content-between align-items-center mt mt-5">
+  <h1>Your Blog :</h1>
+  <button
+    type="button"
+    class="btn btn-dark text-white"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+    data-bs-whatever="@mdo"
+  >
+    EDIT
+  </button>
+</div>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">BLOG</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="recipient-name"
+              name="title"
+              [(ngModel)]="postModel.title"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Content</label>
+            <input
+              type="text"
+              class="form-control"
+              id="recipient-name"
+              name="content"
+              [(ngModel)]="postModel.content"
+              required
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-success text-dark">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-4">
+  <div class="row">
+    <ng-container *ngIf="posts.length > 0; else emptyState">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let post of posts">
+          <span class="fw-bold">Title:</span>{{ post.title }} <br />
+          <span class="fw-bold">Content:</span>{{ post.content }} <br />
+          <button class="btn" (click)="onEdit(post)">
+            <i class="fa-solid fa-pen"></i>
+          </button>
+          <button class="btn mx-2" (click)="deletePost(post.id)">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </li>
+      </ul>
+    </ng-container>
+    <ng-template #emptyState>
+      <div class="empty-state">
+        <p>The blog page is currently empty.</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

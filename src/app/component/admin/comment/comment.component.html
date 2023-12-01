@@ -1,0 +1,35 @@
+<br>
+<br>
+<main class="container mt-5">
+  <section class="table-responsive">
+    <h1 class="text-center mb-4 fw-bold">User's Comments</h1>
+    <div class="input-group mb-3"></div>
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>ID<span class="icon-arrow">&UpArrow;</span></th>
+          <th>COMMENT<span class="icon-arrow">&UpArrow;</span></th>
+          <th>USER_NAME<span class="icon-arrow">&UpArrow;</span></th>
+          <!-- <th>POST_TITLE<span class="icon-arrow">&UpArrow;</span></th> -->
+          <th>DELETE<span class="icon-arrow">&UpArrow;</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let comment of comments"
+          [ngClass]="comment.id ? 'table-info' : ''"
+        >
+          <th scope="row">{{ comment.id }}</th>
+          <td>{{ comment.comment }}</td>
+          <td>{{ getUsername(comment.user_id) }}</td>
+          <!-- <td>{{ getPostTitle(comment.post_id) }}</td> -->
+          <td>
+            <button class="btn btn-dark" (click)="deleteComment(comment.id)">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>

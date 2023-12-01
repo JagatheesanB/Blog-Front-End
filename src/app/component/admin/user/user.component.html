@@ -1,0 +1,29 @@
+<br>
+<br>
+<main class="container mt-5">
+  <section class="table-responsive">
+    <h1 class="text-center mb-4 fw-bold">User's Details</h1>
+    <div class="input-group mb-3"></div>
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>ID<span class="icon-arrow">&UpArrow;</span></th>
+          <th>NAME<span class="icon-arrow">&UpArrow;</span></th>
+          <th>USERNAME<span class="icon-arrow">&UpArrow;</span></th>
+          <!-- <th>JOINDED DATE<span class="icon-arrow">&UpArrow;</span></th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let user of userDetails"
+          [ngClass]="user.id === userDetail.id ? 'table-info' : ''"
+        >
+          <th scope="row">{{ user.id }}</th>
+          <td>{{ user.name }}</td>
+          <td>{{ user.username }}</td>
+          <!-- <td>{{ user.joinedAt }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>

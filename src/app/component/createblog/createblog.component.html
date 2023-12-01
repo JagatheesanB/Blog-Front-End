@@ -1,0 +1,40 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<form (ngSubmit)="addPost(postForm)" #postForm="ngForm">
+<ng-lottie *ngIf="showAnimation" [options]="options"></ng-lottie>
+  <div class="d-flex down">
+    <div
+      contenteditable="true"
+      class="box container w-75 mx-5"
+      id="inputString"
+    >
+      <h1>Title:</h1>
+      <input
+        type="text"
+        class="form-control title mb-2"
+        placeholder="Title"
+        name="title"
+        [(ngModel)]="title"
+        required
+      />
+      <h1>Content:</h1>
+      <textarea
+        class="form-control content"
+        placeholder="Content"
+        name="content"
+        maxlength="1000"
+        [(ngModel)]="content"
+        required
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="add d-flex">
+    <button type="submit" class="btn btn-primary">Post</button>
+  </div>
+</form>

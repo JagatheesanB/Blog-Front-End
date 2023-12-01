@@ -1,0 +1,63 @@
+<br>
+<br>
+
+
+<div class="container mt-5 ctr justify-content-center">
+  <div class="row">
+    <div class="col-md-8" *ngIf="post">
+      <h2 class="post-title">{{ post.title }}</h2>
+      <p class="post-content">{{ post.content }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="container mb-5 ctr">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-header bg-dark text-white">
+        <h2 class="card-title">Comments</h2>
+      </div>
+      <div class="card-body">
+        <div *ngFor="let comment of Comments" class="mb-3">
+          <div class="card border-info" *ngIf="comment.id">
+            <div class="card-body">
+              <p class="card-text fw-bold">{{ comment.comment }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form (ngSubmit)="addComment(form)" #form="ngForm" class="ctr">
+  <div class="container-fluid">
+    <!-- Comment Section -->
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-8">
+          <h5 class="m">Leave a Comment</h5>
+          <div class="mb-3">
+            <label for="userComment" class="form-label">Your Comment:</label>
+            <textarea
+              class="form-control"
+              id="userComment"
+              rows="5"
+              required
+              [(ngModel)]="comment"
+              name="userComment"
+              #userComment="ngModel"
+            ></textarea>
+            <div
+              *ngIf="userComment.invalid && userComment.touched"
+              class="text-danger"
+            >
+              Comment is required.
+            </div>
+          </div>
+          <button type="submit" class="btn-sub">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

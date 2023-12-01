@@ -1,0 +1,61 @@
+.btn-sub {
+  background-color: gold;
+  color: black;
+  width: 10%;
+  border-radius: 10px;
+}
+
+/* Style the container */
+.container {
+  margin-top: 20px;
+}
+
+/* Style the list group */
+.list-group {
+  width: 100%;
+}
+
+/* Style list items */
+.list-group-item {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+
+/* Style the title and content */
+.list-group-item .fw-bold {
+  font-weight: bold;
+}
+
+/* Style the buttons */
+.btn {
+  font-size: 1rem;
+  padding: 6px 12px;
+}
+
+.btn {
+  /* background-color: #138496; */
+  border-color: #138496;
+  color: #fff;
+}
+
+.btn:hover {
+  /* background-color: #17a2b8; */
+  border-color: #17a2b8;
+}
+
+.empty-state {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.empty-state p {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #555;
+}
