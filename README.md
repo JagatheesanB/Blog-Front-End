@@ -1,6 +1,6 @@
 # Blog and Content Management System
 # ➡️ Description
-🌟 Welcome to our innovative project! 🌐
+🌟 Welcome to my innovative blog project! 🌐
 
 **User Interface**
 This comprehensive platform caters to your online presence with its diverse array of features:
