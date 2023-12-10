@@ -18,13 +18,29 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: '', component: HomeComponent, canActivate: [authGuard] },
   { path: 'admin', component: AdminHomeComponent, canActivate: [authGuard] },
-  { path: 'createblog', component: CreateblogComponent },
-  { path: 'userblog', component: UserblogComponent },
-  { path: 'readblog/:postId', component: ReadblogComponent },
-  { path: 'admincomment', component: CommentComponent },
-  { path: 'adminpost', component: PostComponent },
-  { path: 'adminuser', component: UserComponent },
-  { path: 'post/:id', component: PostDetailsComponent },
+  {
+    path: 'createblog',
+    component: CreateblogComponent,
+    canActivate: [authGuard],
+  },
+  { path: 'userblog', component: UserblogComponent, canActivate: [authGuard] },
+  {
+    path: 'readblog/:postId',
+    component: ReadblogComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'admincomment',
+    component: CommentComponent,
+    canActivate: [authGuard],
+  },
+  { path: 'adminpost', component: PostComponent, canActivate: [authGuard] },
+  { path: 'adminuser', component: UserComponent, canActivate: [authGuard] },
+  {
+    path: 'post/:id',
+    component: PostDetailsComponent,
+    canActivate: [authGuard],
+  },
 ];
 
 @NgModule({
@@ -32,3 +48,4 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
+ 

@@ -48,14 +48,14 @@
 
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Content</label>
-            <input
+            <textarea
               type="text"
               class="form-control"
               id="recipient-name"
               name="content"
               [(ngModel)]="postModel.content"
               required
-            />
+            ></textarea>
           </div>
           <div class="modal-footer">
             <button
@@ -80,7 +80,7 @@
     <ng-container *ngIf="posts.length > 0; else emptyState">
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let post of posts">
-          <span class="fw-bold">Title:</span>{{ post.title }} <br />
+          <span class="fw-bold text-danger">Title:</span>{{ post.title }} <br />
           <span class="fw-bold">Content:</span>{{ post.content }} <br />
           <button class="btn" (click)="onEdit(post)">
             <i class="fa-solid fa-pen"></i>
@@ -93,7 +93,7 @@
     </ng-container>
     <ng-template #emptyState>
       <div class="empty-state">
-        <p>The blog page is currently empty.</p>
+        <p>Your blog page is currently empty!!!.</p>
       </div>
     </ng-template>
   </div>

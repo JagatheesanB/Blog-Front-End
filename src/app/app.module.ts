@@ -8,8 +8,6 @@ import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { MatInputModule } from '@angular/material/input';
-// import { MatCardModule } from '@angular/material/card';
 
 import player from 'lottie-web';
 import { LottieModule } from 'ngx-lottie';
@@ -43,9 +41,7 @@ export function playerFactory() {
     PostComponent,
     CommentComponent,
     UserComponent,
-    PostDetailsComponent
-    // MatInputModule,
-    // MatCardModule,
+    PostDetailsComponent,
   ],
   imports: [
     BrowserModule,

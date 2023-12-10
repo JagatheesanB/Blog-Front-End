@@ -41,7 +41,7 @@ export class UserblogComponent implements OnInit {
                 post.user_id === this.storageService.getLoggedInUser().id
             );
           } else {
-            console.error('Invalid API response format:', response);
+            console.error('ID is Mismatch', response);
           }
         },
         error: (err) => {

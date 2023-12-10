@@ -752,3 +752,7 @@ h1 {
 .carousel-control-next-icon::before {
   color: #fff; /* Change arrow color */
 }
+
+.container i.fa-arrow-up-right-from-square{
+  width: 100px;
+}

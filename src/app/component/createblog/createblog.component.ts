@@ -10,7 +10,7 @@ import { AnimationOptions } from 'ngx-lottie';
   templateUrl: './createblog.component.html',
   styleUrls: ['./createblog.component.css'],
 })
-export class CreateblogComponent implements OnInit {
+export class CreateblogComponent {
   options: AnimationOptions = {
     path: '/assets/success.json',
   };
@@ -34,24 +34,6 @@ export class CreateblogComponent implements OnInit {
     private postService: PostService,
     private storageService: StorageService
   ) {}
-
-  ngOnInit(): void {
-    this.fetchPosts();
-  }
-
-  fetchPosts() {
-    this.postService.getPost().subscribe({
-      next: (response: any) => {
-        if (response && response.data) {
-          this.Posts = response.data;
-        }
-      },
-      error: (err) => {
-        console.error('An error occurred while fetching posts:', err);
-      },
-      complete: () => console.log('There are no more actions happening.'),
-    });
-  }
 
   addPost(form: NgForm) {
     const loggedInUser = this.storageService.getLoggedInUser();

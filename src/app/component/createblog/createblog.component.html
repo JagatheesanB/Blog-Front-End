@@ -1,12 +1,12 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 <form (ngSubmit)="addPost(postForm)" #postForm="ngForm">
-<ng-lottie *ngIf="showAnimation" [options]="options"></ng-lottie>
+  <ng-lottie *ngIf="showAnimation" [options]="options"></ng-lottie>
   <div class="d-flex down">
     <div
       contenteditable="true"
@@ -18,19 +18,34 @@
         type="text"
         class="form-control title mb-2"
         placeholder="Title"
-        name="title"
+        name="title" 
         [(ngModel)]="title"
         required
       />
       <h1>Content:</h1>
       <textarea
-        class="form-control content"
+        class="form-input content"
         placeholder="Content"
         name="content"
         maxlength="1000"
         [(ngModel)]="content"
         required
       ></textarea>
+      <!-- <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <textarea
+              class="form-input fw-bold content"
+              id="userComment"
+              rows="5"
+              maxlength="1000"
+              required
+              [(ngModel)]="content"
+              name="content"
+            ></textarea>
+          </div>
+        </div>
+      </div> -->
     </div>
   </div>
 

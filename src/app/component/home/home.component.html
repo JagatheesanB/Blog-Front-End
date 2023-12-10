@@ -46,8 +46,8 @@
   <div *ngFor="let post of posts" class="row">
     <div class="col-12" *ngIf="post.id">
       <div class="blog-post mt-5">
-        <h2 class="post-title">{{ post.title }}</h2>
-        <p class="post-content fw-bold">
+        <h2 class="post-title text-danger">{{ post.title }}</h2>
+        <p class="post-content ">
           {{ post.content }}
         </p>
         <a
@@ -55,7 +55,7 @@
           class="card-link text-success"
           (click)="navigateToPost(post.id)"
         >
-          Read_more
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </a>
       </div>
     </div>

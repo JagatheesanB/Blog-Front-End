@@ -1,11 +1,10 @@
-<br>
-<br>
-
+<br />
+<br />
 
 <div class="container mt-5 ctr justify-content-center">
   <div class="row">
     <div class="col-md-8" *ngIf="post">
-      <h2 class="post-title">{{ post.title }}</h2>
+      <h2 class="post-title text-danger">{{ post.title }}</h2>
       <p class="post-content">{{ post.content }}</p>
     </div>
   </div>
@@ -30,32 +29,35 @@
   </div>
 </div>
 
-<form (ngSubmit)="addComment(form)" #form="ngForm" class="ctr">
+<form (ngSubmit)="addComment(form)" #form="ngForm" class="move">
   <div class="container-fluid">
-    <!-- Comment Section -->
     <div class="container mt-5">
       <div class="row">
         <div class="col-md-8">
           <h5 class="m">Leave a Comment</h5>
           <div class="mb-3">
-            <label for="userComment" class="form-label">Your Comment:</label>
-            <textarea
-              class="form-control"
-              id="userComment"
-              rows="5"
-              required
-              [(ngModel)]="comment"
-              name="userComment"
-              #userComment="ngModel"
-            ></textarea>
-            <div
+            <div class="col-xs-12">
+              <div class="form-group">
+                <textarea
+                  class="form-input fw-bold"
+                  id="userComment"
+                  rows="5"
+                  required
+                  [(ngModel)]="comment"
+                  name="userComment"
+                  #userComment="ngModel"
+                  placeholder="Add Comment..."
+                ></textarea>
+              </div>
+            </div>
+            <!-- <div
               *ngIf="userComment.invalid && userComment.touched"
               class="text-danger"
             >
               Comment is required.
-            </div>
+            </div> -->
           </div>
-          <button type="submit" class="btn-sub">Submit</button>
+          <button type="submit" class="btn-sub"><i class="fa-solid fa-check"></i></button>
         </div>
       </div>
     </div>

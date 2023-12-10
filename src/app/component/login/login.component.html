@@ -1,5 +1,9 @@
 <section class="vh-100 glass-morphism">
-  <img src="assets/about-bg.jpg" alt="Background Image" class="bg-img" />
+  <img
+    src="/assets/c10.jpg"
+    alt="Background Image"
+    class="bg-img"
+  />
   <div class="container py-5 h-100">
     <div class="row d-flex align-items-center justify-content-center h-100">
       <div class="col-6">
@@ -63,14 +67,20 @@
             <span>Not registered?</span>
             <a
               routerLink="/register"
-              class="text-primary text-decoration-none px-2"
+              class="text-primary txt text-decoration-none px-2"
               >Register here</a
             >
           </div>
 
           <!-- Submit button -->
           <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="loginForm.invalid"
+            >
+              Login
+            </button>
           </div>
         </form>
       </div>

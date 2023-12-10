@@ -11,7 +11,7 @@ export class HomeService {
   error: String = '';
   constructor(private http: HttpClient) {}
 
-  getAllBooks(): void {
+  getAll(): void {
     console.log('called');
 
     this.http.get<AppResponse>(`${urlEndpoint.baseUrl}`).subscribe({

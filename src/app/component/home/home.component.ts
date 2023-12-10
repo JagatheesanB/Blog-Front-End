@@ -59,9 +59,7 @@ export class HomeComponent implements OnInit {
     this.postService.getPostById(postId).subscribe(
       (response) => {
         console.log(response);
-        this.router.navigate(['/readblog', postId], {
-          state: { post: response.data },
-        });
+        this.router.navigate(['/readblog', postId]);
       },
       (error) => {
         console.error('Error fetching post:', error);

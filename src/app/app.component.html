@@ -30,32 +30,50 @@
     <nav
       class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow"
     >
-      <div class="container-fluid">
-        <a class="navbar-brand text-black fw-bold mx-3" routerLink="/">BLOG</a>
-
+      <div class="container-fluid mode">
+        <a class="navbar-brand text-black fw-bold mx-3">BLOG</a>
+        <!-- <div class="form-check form-switch">
+          <input
+            class="form-check-input p-2"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchCheckChecked"
+            checked
+            onclick="myFunction()"
+          />
+        </div> -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
+              <!-- <i
+                class="fa-solid fa-user-secret fa-lg mt-3"
+                routerLink="/login"
+                style="color: #000000"
+              ></i> -->
+
               <a class="nav-link" (click)="logout()" role="button">
-                <i class="fa-solid fa-beat fa-right-from-bracket"></i>
+                <i class="fa-solid fa-beat fa-right-from-bracket fa-lg"></i>
               </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
     <div class="sidebar sticky border border-right col-2 p-0 mt-5">
       <div class="bg-body-tertiary h-100" tabindex="-1">
         <div class="d-flex flex-column p-0 pt-3 overflow-y-auto">
           <ul class="nav flex-column">
             <li class="nav-item d-flex align-items-center px-4 sideBarItem">
               <i class="fa-solid fa-house-circle-check"></i>
-              <a class="nav-link d-flex align-items-center fw-bold">HOME</a>
+              <a class="nav-link d-flex align-items-center text-black fw-bold"
+                >HOME</a
+              >
             </li>
             <li class="nav-item d-flex align-items-center px-4 sideBarItem">
               <i class="fa-solid fa-user"></i>
               <a
-                class="nav-link d-flex align-items-center fw-bold"
+                class="nav-link d-flex align-items-center fw-bold text-black"
                 routerLink="/adminuser"
                 >USERS</a
               >
@@ -63,7 +81,7 @@
             <li class="nav-item d-flex align-items-center px-4 sideBarItem">
               <i class="fa-solid fa-book-open"></i>
               <a
-                class="nav-link d-flex align-items-center fw-bold"
+                class="nav-link d-flex align-items-center text-black fw-bold"
                 routerLink="/adminpost"
                 >POSTS</a
               >
@@ -71,7 +89,7 @@
             <li class="nav-item d-flex align-items-center px-4 sideBarItem">
               <i class="fa-solid fa-comments"></i>
               <a
-                class="nav-link d-flex align-items-center fw-bold"
+                class="nav-link d-flex text-black align-items-center fw-bold"
                 routerLink="/admincomment"
                 >COMMENTS</a
               >
@@ -111,17 +129,37 @@
     >
       <div class="container-fluid">
         <a class="navbar-brand text-black fw-bold" routerLink="/">BLOG</a>
+        <div class="form-check form-switch">
+          <!-- <input
+            class="form-check-input p-2"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchCheckChecked"
+            checked
+            onclick="myFunction()"
+          /> -->
+        </div>
 
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <a
               class="navbar-brand px-3 text-white fw-bold container d-flex"
               routerLink="/userblog"
-              ><i class="fa-solid fa-newspaper mt-1" style="color: #000000;"></i>
+              ><i class="fa-solid fa-newspaper" style="color: #000000"></i>
             </a>
+
+            <!-- <i
+              class="fa-solid fa-user-secret fa-lg mt-3"
+              routerLink="/login"
+              style="color: #000000"
+            ></i> -->
+
             <li class="nav-item">
               <a class="nav-link" (click)="logout()">
-                <i class="fa-solid fa-right-from-bracket" style="color: #000000;"></i>
+                <i
+                  class="fa-solid fa-right-from-bracket fa-lg mb-2"
+                  style="color: #000000"
+                ></i>
               </a>
             </li>
           </ul>

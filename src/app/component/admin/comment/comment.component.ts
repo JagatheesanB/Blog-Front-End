@@ -83,6 +83,7 @@ export class CommentComponent {
     const user = this.userDetails.find((user) => user.id === userId);
     return user ? user.username : '';
   }
+  
   getPostTitle(postId: number): string {
     const post = this.posts.find((post) => post.id === postId);
     return post ? post.title : '';
