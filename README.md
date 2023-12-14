@@ -15,7 +15,7 @@
 
 💬 Add Comments: Foster interaction and engagement by contributing meaningful comments to blogs, sparking lively discussions within the community.
 
-**Admin Interface**:
+## Admin Interface:
 
 Key features include:
 
@@ -49,7 +49,7 @@ Key features include:
 ![Screenshot (9)](https://github.com/JagatheesanB/Blog-Front-End/assets/145537675/4eed474d-090b-4557-bdae-3daadc50a8f0)
 
  # ➡️ Challenges
-**Backend Challenges**:
+## Backend Challenges:
 
 Mapping: Navigating intricate data relationships and ensuring seamless object-relational mapping (ORM) for streamlined backend functionality. 🧭
 
@@ -57,7 +57,7 @@ Connecting to SQL: Overcoming connectivity obstacles and optimizing SQL queries 
 
 Naming Conventions: Establishing uniform and meaningful naming conventions for database tables, fields, and backend code to enhance maintainability and collaboration. 🏷️
 
-**Frontend Challenges**:
+## Frontend Challenges:
 
 User Experience (UX): Designing an instinctive and visually captivating user interface that accommodates diverse user needs and preferences. 🎨✨
 
