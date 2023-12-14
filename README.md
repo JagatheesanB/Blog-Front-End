@@ -2,7 +2,7 @@
 # ➡️ Description
 🌟 Welcome to my innovative blog project! 🌐
 
-**User Interface**:
+## User Interface:
 
 
 🔐 Login/Register: Seamlessly access your personalized account and establish a secure connection to our platform.
