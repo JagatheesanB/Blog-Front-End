@@ -1,17 +1,88 @@
+/* Animate table rows on hover */
+.table-hover tbody tr:hover {
+  /* background-color: #f5f5f5; */
+  transition: background-color 0.3s ease;
+}
+
+/* Arrow icon styles */
 .icon-arrow {
-    vertical-align: middle;
-    margin-left: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow on sort */
+th.sorted .icon-arrow {
+  transform: rotate(180deg);
+}
+
+/* Animated table header on click */
+th {
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* th:hover {
+  background-color: #f0f0f0; 
+} */
+
+/* Styling for the main container */
+.container {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Responsive table styles */
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* Styles for table headings and cells */
+.table thead th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Highlight the selected row */
+.table-info td {
+  background-color: #e7f3fe !important;
+}
+
+/* Optional: Add a striped background to the table */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Styles for the delete button */
+.btn-dark {
+  background-color: #343a40; /* Dark background color for the button */
+  color: #fff; /* Text color for the button */
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-dark:hover {
+  background-color: #1e2124; /* Darker background color on hover */
+  color: #fff; /* Text color on hover */
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
-  .table-responsive {
-    overflow-x: auto;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .table thead th {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: #343a40;
-    color: #fff;
-  }
-  
+}
+
+.table tr {
+  animation: fadeIn 0.5s ease forwards;
+  opacity: 0;
+}

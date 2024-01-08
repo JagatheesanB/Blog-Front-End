@@ -1,0 +1,37 @@
+<br /><br /><br /><br><br>
+<div class="btn-group" *ngIf="showButtons && loadMoreClicked">
+  <button
+    class="sort dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    SORT
+  </button>
+  <div class="dropdown-menu">
+    <button class="dropdown-item" (click)="sortProductsAToZ()">A to Z</button>
+    <button class="dropdown-item" (click)="sortProductsZToA()">Z to A</button>
+  </div>
+</div>
+
+<div class="container mb-5">
+  <div *ngIf="posts.length > 0; else noPostsFound">
+    <div *ngFor="let post of posts" class="row">
+      <div class="col-12">
+        <div class="blog-post mt-5">
+          <h2 class="post-title text-danger">{{ post.title }}</h2>
+          <p class="post-content">{{ post.content }}</p>
+          <a href="#" class="card-link text-success">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noPostsFound>
+    <!-- <div class="text-center mt-3">
+        <p class="fs-4">No posts available.</p>
+      </div> -->
+  </ng-template>
+</div>

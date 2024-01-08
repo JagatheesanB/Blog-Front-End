@@ -12,6 +12,7 @@ import { CommentComponent } from './component/admin/comment/comment.component';
 import { PostComponent } from './component/admin/post/post.component';
 import { UserComponent } from './component/admin/user/user.component';
 import { PostDetailsComponent } from './component/admin/post-details/post-details.component';
+import { LoadmoreComponent } from './component/loadmore/loadmore.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -36,11 +37,13 @@ const routes: Routes = [
   },
   { path: 'adminpost', component: PostComponent, canActivate: [authGuard] },
   { path: 'adminuser', component: UserComponent, canActivate: [authGuard] },
+  { path: 'adminhome', component: AdminHomeComponent },
   {
     path: 'post/:id',
     component: PostDetailsComponent,
     canActivate: [authGuard],
   },
+  { path: 'loadmore', component: LoadmoreComponent },
 ];
 
 @NgModule({
@@ -48,4 +51,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
- 

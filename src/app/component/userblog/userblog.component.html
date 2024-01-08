@@ -1,9 +1,8 @@
 <br />
 <br />
 <br />
-
 <div class="d-flex justify-content-between align-items-center mt mt-5">
-  <h1>Your Blog :</h1>
+  <h1 class="mx-4">Your Blog :</h1>
   <button
     type="button"
     class="btn btn-dark text-white"
@@ -65,9 +64,7 @@
             >
               Close
             </button>
-            <button type="submit" class="btn btn-success text-dark">
-              Save
-            </button>
+            <button type="submit" class="btn btn-dark text-white">Save</button>
           </div>
         </form>
       </div>
@@ -78,22 +75,28 @@
 <div class="container my-4">
   <div class="row">
     <ng-container *ngIf="posts.length > 0; else emptyState">
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let post of posts">
-          <span class="fw-bold text-danger">Title:</span>{{ post.title }} <br />
-          <span class="fw-bold">Content:</span>{{ post.content }} <br />
-          <button class="btn" (click)="onEdit(post)">
-            <i class="fa-solid fa-pen"></i>
-          </button>
-          <button class="btn mx-2" (click)="deletePost(post.id)">
-            <i class="fa-solid fa-trash-can"></i>
-          </button>
-        </li>
-      </ul>
+      <div class="blog-posts">
+        <div class="blog-post" *ngFor="let post of posts">
+          <div class="blog-post-content">
+            <h2 class="post-title">{{ post.title }}</h2>
+            <p class="post-body">{{ post.content }}</p>
+          </div>
+          <div class="blog-post-actions">
+            <button class="edit-btn" (click)="onEdit(post)">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+            <button class="delete-btn" (click)="deletePost(post.id)">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- post.id -->
     </ng-container>
     <ng-template #emptyState>
       <div class="empty-state">
         <p>Your blog page is currently empty!!!.</p>
+        <button class="create" routerLink="/createblog">Add Blog</button>
       </div>
     </ng-template>
   </div>

@@ -1,4 +1,4 @@
-.icon-arrow {
+/* .icon-arrow {
     vertical-align: middle;
     margin-left: 5px;
   }
@@ -14,4 +14,70 @@
     background-color: #343a40;
     color: #fff;
   }
-  
+   */
+
+/* Additional CSS for table styling and animation */
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.table th {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+.table-info {
+  background-color: #d1ecf1 !important;
+  transition: all 0.3s ease;
+}
+
+/* Arrow icon styling */
+.icon-arrow {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.table tr {
+  animation: fadeIn 0.5s ease forwards;
+  opacity: 0;
+}
+
+.container {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}

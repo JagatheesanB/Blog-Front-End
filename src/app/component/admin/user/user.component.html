@@ -2,7 +2,7 @@
 <br>
 <main class="container mt-5">
   <section class="table-responsive">
-    <h1 class="text-center mb-4 fw-bold">User's Details</h1>
+    <h1 class="text-center mb-4 fw-bold text-success">USER'S DETAILS</h1>
     <div class="input-group mb-3"></div>
     <table class="table table-bordered table-hover">
       <thead class="table-dark">
@@ -16,7 +16,7 @@
       <tbody>
         <tr
           *ngFor="let user of userDetails"
-          [ngClass]="user.id === userDetail.id ? 'table-info' : ''"
+          [ngClass]="user.id === userDetail.id ? 'table-success' : ''"
         >
           <th scope="row">{{ user.id }}</th>
           <td>{{ user.name }}</td>

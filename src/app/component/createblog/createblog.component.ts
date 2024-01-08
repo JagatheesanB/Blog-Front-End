@@ -4,6 +4,7 @@ import { PostService } from 'src/app/service/post.service';
 import { StorageService } from 'src/app/service/storage.service';
 import { NgForm } from '@angular/forms';
 import { AnimationOptions } from 'ngx-lottie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createblog',
@@ -16,6 +17,8 @@ export class CreateblogComponent {
   };
 
   showAnimation: boolean = false;
+
+  showSuccessToast: boolean = false;
 
   title: string = '';
   content: string = '';
@@ -32,7 +35,8 @@ export class CreateblogComponent {
 
   constructor(
     private postService: PostService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private router: Router
   ) {}
 
   addPost(form: NgForm) {
@@ -62,10 +66,27 @@ export class CreateblogComponent {
       console.error('User ID not found or user not logged in.');
     }
 
+    // this.router.navigate(['']);
+
     this.showAnimation = true;
 
     setTimeout(() => {
       this.showAnimation = false;
-    }, 2000);
+    }, 1000);
+
+    // this.showAnimation = true;
+
+    // setTimeout(() => {
+    //   this.showAnimation = false;
+    //   this.showSuccessToast = true;
+    // }, 1000);
+
+    // setTimeout(() => {
+    //   this.showSuccessToast = false;
+    // }, 5000);
+  }
+
+  hideToast() {
+    this.showSuccessToast = false;
   }
 }

@@ -5,17 +5,14 @@
   border-radius: 10px;
 }
 
-/* Style the container */
-.container {
+/* .container {
   margin-top: 20px;
 }
 
-/* Style the list group */
 .list-group {
   width: 100%;
 }
 
-/* Style list items */
 .list-group-item {
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -23,27 +20,23 @@
   padding: 15px;
 }
 
-/* Style the title and content */
 .list-group-item .fw-bold {
   font-weight: bold;
 }
 
-/* Style the buttons */
 .btn {
   font-size: 1rem;
   padding: 6px 12px;
 }
 
 .btn {
-  /* background-color: #138496; */
   border-color: #138496;
   color: #fff;
 }
 
 .btn:hover {
-  /* background-color: #17a2b8; */
   border-color: #17a2b8;
-}
+} */
 
 .empty-state {
   text-align: center;
@@ -55,7 +48,70 @@
 }
 
 .empty-state p {
-  font-weight: bold;
+  font-weight:bold;
+  font-style: italic;
   font-size: 1.2em;
   color: #555;
+}
+
+/* Blog post styles */
+.blog-posts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.blog-post {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  width: calc(33.33% - 20px); /* Adjust as needed */
+}
+
+.post-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.post-body {
+  line-height: 1.6;
+}
+
+.blog-post-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  filter: brightness(0.8);
+}
+
+.create{
+  width: 100px;
+  border-radius: 15px;
+  background-color: black;
+  color: white;
 }

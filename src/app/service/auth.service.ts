@@ -1,13 +1,13 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { CONSTANT, urlEndpoint } from '../utils/constant';
-import { Login } from '../model/login';
-import { BehaviorSubject, Observable, Observer, map } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { AppResponse } from '../model/appResponse';
 import { StorageService } from './storage.service';
 import { AppUser } from '../model/appUser';
+import { Login } from '../model/login';
 import { Register } from '../model/register';
+import { CONSTANT, urlEndpoint } from '../utils/constant';
 
 @Injectable({
   providedIn: 'root',
@@ -23,13 +23,17 @@ export class AuthService {
   isAdmin$: Observable<boolean> = this.isAdminSubject.asObservable();
   isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
 
+  private loggedInUser: AppUser | null = null;
+
   constructor(
     private router: Router,
     private http: HttpClient,
     private storageService: StorageService
   ) {
-    if (storageService.getLoggedInUser().id != null) {
-      this.setLoggedIn(storageService.getLoggedInUser());
+    // Initialize loggedInUser from storage if available
+    const storedUser = this.storageService.getLoggedInUser();
+    if (storedUser) {
+      this.setLoggedIn(storedUser);
     }
   }
 
@@ -37,20 +41,15 @@ export class AuthService {
     return this.http
       .post<AppResponse>(`${urlEndpoint.baseUrl}/auth/login`, login)
       .pipe(
-        map((user) => {
+        map((response) => {
+          const user = response.data as AppUser;
           this.userSubject.next(
             window.btoa(login.username + ':' + login.password)
           );
-          return user;
+          this.setLoggedIn(user);
+          return response;
         })
       );
-  }
-
-  register(newregister: Register): Observable<AppResponse> {
-    return this.http.post<AppResponse>(
-      `${urlEndpoint.baseUrl}/auth/register`,
-      newregister
-    );
   }
 
   logout() {
@@ -70,6 +69,7 @@ export class AuthService {
   }
 
   setLoggedIn(user: AppUser): void {
+    this.loggedInUser = user;
     this.storageService.setLoggedInUser(user);
     this.isLoggedInSubject.next(true);
 
@@ -79,5 +79,20 @@ export class AuthService {
       this.isAdminSubject.next(true);
       this.router.navigate(['/admin'], { replaceUrl: true });
     }
+  }
+
+  register(newregister: Register): Observable<AppResponse> {
+    return this.http.post<AppResponse>(
+      `${urlEndpoint.baseUrl}/auth/register`,
+      newregister
+    );
+  }
+
+  getLoggedInUser(): AppUser | null {
+    return this.loggedInUser;
+  }
+
+  isUserLoggedIn(): boolean {
+    return !!this.loggedInUser;
   }
 }

@@ -23,6 +23,7 @@ import { CommentComponent } from './component/admin/comment/comment.component';
 import { UserComponent } from './component/admin/user/user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostDetailsComponent } from './component/admin/post-details/post-details.component';
+import { LoadmoreComponent } from './component/loadmore/loadmore.component';
 
 export function playerFactory() {
   return player;
@@ -42,6 +43,7 @@ export function playerFactory() {
     CommentComponent,
     UserComponent,
     PostDetailsComponent,
+    LoadmoreComponent,
   ],
   imports: [
     BrowserModule,

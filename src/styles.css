@@ -19,6 +19,7 @@
   --green-500: #84cc16;
   --green-700: #4d7c0f;
   --border-radius: 70px;
+  --max-width: 960px;
 }
 l̥ body {
   font-family: "Exo 2", sans-serif;
@@ -100,7 +101,7 @@ l̥ body {
   /* opacity: 0.7; */
 }
 
-/* form */
+/* form */ 
 .form-control,
 .form-control:focus {
   color: var(--primary-500);
@@ -151,14 +152,18 @@ l̥ body {
   padding: 8px;
 }
 
+.sideBarItem {
+  transition: background-color 0.2s ease-in-out;
+}
+
 .sideBarItem,
 .sideBarItem > a {
-  color: var();
+  color: var(--primary-600);
   padding: 8px;
 }
 
 .sideBarItem > a:hover {
-  color: var();
+  color: var(--primary-50) !important;
 }
 
 .sideBarActive > .fa-solid {
@@ -166,9 +171,17 @@ l̥ body {
 }
 
 .sideBarItem:hover {
-  color: var();
-  background-color: var(--green-300);
+  /* color: var(--primary-50) !important; */
+  background-color: var(--primary-500);
   padding: 8px;
+}
+
+.sideBarItem:hover a {
+  color: var(--primary-50) !important;
+}
+
+.sideBarItem:hover i {
+  color: var(--primary-50) !important;
 }
 
 /* Icon */

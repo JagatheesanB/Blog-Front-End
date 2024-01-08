@@ -1,9 +1,5 @@
 <section class="vh-100 glass-morphism">
-  <img
-    src="/assets/c10.jpg"
-    alt="Background Image"
-    class="bg-img"
-  />
+  <img src="/assets/c10.jpg" alt="Background Image" class="bg-img" />
   <div class="container py-5 h-100">
     <div class="row d-flex align-items-center justify-content-center h-100">
       <div class="col-6">
@@ -13,7 +9,15 @@
         <h1 class="display-4 text-dark fw-bold">Login</h1>
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
           <!-- Username input -->
-          <div class="form-outline mb-3">
+          <div
+            class="form-outline mb-3"
+            [ngClass]="{
+              'has-error':
+                Namevalid.invalid &&  Namevalid.touched,
+              'has-success':
+                !Namevalid.invalid && Namevalid.touched
+            }"
+          >
             <label class="form-label" for="username">Username</label>
             <input
               type="text"
@@ -26,11 +30,6 @@
               maxlength="15"
               #Namevalid="ngModel"
               [(ngModel)]="username"
-              [ngClass]="
-                Namevalid.invalid && (Namevalid.dirty || Namevalid.touched)
-                  ? 'is-invalid '
-                  : ''
-              "
             />
             <div *ngIf="Namevalid.invalid" class="invalid-feedback fw-bold">
               Username characters > 3
@@ -38,7 +37,17 @@
           </div>
 
           <!-- Password input -->
-          <div class="form-outline mb-3">
+          <div
+            class="form-outline mb-3"
+            [ngClass]="{
+              'has-error':
+                passwordvalid.invalid &&
+                (passwordvalid.dirty || passwordvalid.touched),
+              'has-success':
+                !passwordvalid.invalid &&
+                (passwordvalid.dirty || passwordvalid.touched)
+            }"
+          >
             <label class="form-label" for="password">Password</label>
             <input
               type="password"
@@ -51,12 +60,6 @@
               minlength="3"
               maxlength="10"
               #passwordvalid="ngModel"
-              [ngClass]="
-                passwordvalid.invalid &&
-                (passwordvalid.dirty || passwordvalid.touched)
-                  ? 'is-invalid'
-                  : ''
-              "
             />
             <div *ngIf="passwordvalid.invalid" class="invalid-feedback fw-bold">
               Password characters > 3
@@ -87,3 +90,13 @@
     </div>
   </div>
 </section>
+
+<style>
+  .has-error {
+    border-color: red;
+  }
+
+  .has-success {
+    border-color: green;
+  }
+</style>

@@ -107,8 +107,8 @@
   border-radius: 20px;
 }
 
-.btn-sub i .fa-solid{
- width: 20px;
+.btn-sub i .fa-solid {
+  width: 20px;
 }
 
 /* comments */
@@ -224,10 +224,10 @@
   height: 150px;
 }
 
-.container-fluid{
+.container-fluid {
   max-width: 50%;
 }
 
-.move{
+.move {
   margin-right: 25%;
 }

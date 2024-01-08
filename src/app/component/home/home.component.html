@@ -1,13 +1,23 @@
-<br>
-<br>
-<br>
+<br />
+<br />
+<br />
+<br />
+
+<p
+  *ngIf="isUserLoggedIn()"
+  class="welcome-message mx-4 vertical-text"
+  style="font-family: sans-serif; font-size: 5vh !important"
+>
+  Welcome, {{ getLoggedInUserName() }}!
+</p>
+
 <div
   id="carouselExampleAutoplaying"
-  class="carousel slide mt-3"
+  class="carousel slide mt-3 w-90"
   data-bs-ride="carousel"
 >
   <div class="carousel-inner">
-    <div class="carousel-item ">
+    <div class="carousel-item">
       <img src="/assets/c4.jpg" class="d-block w-100" alt="..." />
     </div>
     <div class="carousel-item active">
@@ -37,38 +47,81 @@
   </button>
 </div>
 
-<div class="cb d-flex justify-content-center mb-5">
-  <button class="btn" routerLink="/createblog">Create a Blog</button>
+<div class="input-group custom-search">
+  <input
+    class="form-control mx-5 rounded mt-5"
+    type="search"
+    placeholder="Search post By Name"
+    aria-label="Search"
+    [(ngModel)]="search"
+    (ngModelChange)="filterArray()"
+    style="color: var(--primary-700)"
+  />
+</div>
+
+<!-- Updated HTML with the new sorting buttons -->
+<div class="btn-group" *ngIf="showButtons && loadMoreClicked">
+  <button
+    class="sort dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    SORT
+  </button>
+  <div class="dropdown-menu">
+    <button class="dropdown-item" (click)="sortProductsAToZ()">A to Z</button>
+    <button class="dropdown-item" (click)="sortProductsZToA()">Z to A</button>
+  </div>
 </div>
 
 <!-- Post Section -->
 <div class="container mb-5">
-  <div *ngFor="let post of posts" class="row">
-    <div class="col-12" *ngIf="post.id">
-      <div class="blog-post mt-5">
-        <h2 class="post-title text-danger">{{ post.title }}</h2>
-        <p class="post-content ">
-          {{ post.content }}
-        </p>
-        <a
-          href="#"
-          class="card-link text-success"
-          (click)="navigateToPost(post.id)"
+  <ng-lottie
+    *ngIf="showAnimation"
+    [options]="options"
+    width="35%"
+    class="d-flex justify-content-center"
+  ></ng-lottie>
+
+  <div *ngIf="posts.length > 0; else noPostsFound">
+    <div *ngFor="let post of posts.slice(0, displayedPostsCount)" class="row">
+      <div class="col-12">
+        <div
+          class="blog-post mt-5"
+          (mouseenter)="zoomIn(post)"
+          (mouseleave)="zoomOut(post)"
         >
-        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
+          <h2 class="post-title text-danger">{{ post.title }}</h2>
+          <p class="post-content">{{ post.content }}</p>
+          <a
+            href="#"
+            class="card-link text-success"
+            (click)="navigateToPost(post.id)"
+          >
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
       </div>
     </div>
   </div>
+  <ng-template #noPostsFound>
+    <!-- <div class="text-center mt-3">
+      <p class="fs-4">No posts available.</p>
+    </div> -->
+  </ng-template>
+</div>
+
+<div class="cb d-flex justify-content-center mb-5" *ngIf="showButtons">
+  <button class="loadmore" (click)="loadMorePosts()" routerLink="/loadmore">Load More</button>
 </div>
 
 <!-- Post Section Ends -->
 
-<!-- Comment Section -->
-
-<!--  -->
-
-<!-- Comment Section Ends -->
+<div class="cb d-flex justify-content-center mb-5" *ngIf="showButtons">
+  <button class="btn" routerLink="/createblog">Create a Blog</button>
+</div>
 
 <!-- Footer -->
 
@@ -76,7 +129,7 @@
   <footer class="footer bg-dark">
     <section class="footer-section">
       <ul>
-        <li><h3>Help</h3></li>
+        <li><h3 class="text-warning">HELP</h3></li>
         <li><a href="/go/helpcenter" class="ga-footer">Help Center</a></li>
         <li><a href="/go/helpforum" class="ga-footer">Help Forum</a></li>
         <li><a href="/go/tutorials" class="ga-footer">Video Tutorials</a></li>
@@ -84,13 +137,13 @@
     </section>
     <section class="footer-section">
       <ul>
-        <li><h3>Community</h3></li>
+        <li><h3 class="text-warning">COMMUNITY</h3></li>
         <li><a href="/go/buzz" class="ga-footer">Blogger Buzz</a></li>
       </ul>
     </section>
     <section class="footer-section">
       <ul>
-        <li><h3>Developers</h3></li>
+        <li><h3 class="text-warning">DEVELOPERS</h3></li>
         <li><a href="/go/devapi" class="ga-footer">Blogger API</a></li>
         <li><a href="/go/devforum" class="ga-footer">Developer Forum</a></li>
       </ul>

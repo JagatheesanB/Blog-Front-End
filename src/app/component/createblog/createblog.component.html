@@ -13,16 +13,16 @@
       class="box container w-75 mx-5"
       id="inputString"
     >
-      <h1>Title:</h1>
+      <label>Title:</label>
       <input
         type="text"
         class="form-control title mb-2"
         placeholder="Title"
-        name="title" 
+        name="title"
         [(ngModel)]="title"
         required
       />
-      <h1>Content:</h1>
+      <label>Content:</label>
       <textarea
         class="form-input content"
         placeholder="Content"
@@ -31,21 +31,6 @@
         [(ngModel)]="content"
         required
       ></textarea>
-      <!-- <div class="row">
-        <div class="col-xs-12">
-          <div class="form-group">
-            <textarea
-              class="form-input fw-bold content"
-              id="userComment"
-              rows="5"
-              maxlength="1000"
-              required
-              [(ngModel)]="content"
-              name="content"
-            ></textarea>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 
@@ -53,3 +38,28 @@
     <button type="submit" class="btn btn-primary">Post</button>
   </div>
 </form>
+
+<!-- Toast Message -->
+<!-- <div
+  aria-live="polite"
+  aria-atomic="true"
+  style="position: relative; min-height: 200px"
+>
+  <div
+    *ngIf="showSuccessToast"
+    class="toast"
+    style="position: absolute; top: 0; right: 0"
+  >
+    <div class="toast-header">
+      <button
+        type="button"
+        class="ml-2 mb-1 close"
+        (click)="hideToast()"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body">Blog posted successfully!!!</div>
+  </div>
+</div> -->

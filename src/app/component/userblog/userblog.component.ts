@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AppResponse } from 'src/app/model/appResponse';
 import { Post } from 'src/app/model/post';
 import { PostService } from 'src/app/service/post.service';
@@ -20,6 +20,7 @@ export class UserblogComponent implements OnInit {
   posts: Post[] = [];
   postModel: Post = this.INITIAL_POST;
   createBlogComponent: any;
+
 
   constructor(
     private postService: PostService,
@@ -82,6 +83,7 @@ export class UserblogComponent implements OnInit {
       },
     });
   }
+
 
   isLoggedInUser(post: Post, userId: any): boolean {
     return post.user_id === userId;
