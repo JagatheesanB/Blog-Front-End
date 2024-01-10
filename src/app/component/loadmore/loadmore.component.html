@@ -1,4 +1,4 @@
-<br /><br /><br /><br><br>
+<br /><br /><br /><br /><br />
 <div class="btn-group" *ngIf="showButtons && loadMoreClicked">
   <button
     class="sort dropdown-toggle"
@@ -22,7 +22,7 @@
         <div class="blog-post mt-5">
           <h2 class="post-title text-danger">{{ post.title }}</h2>
           <p class="post-content">{{ post.content }}</p>
-          <a href="#" class="card-link text-success">
+          <a href="#" class="card-link text-success" (click)="navigateToPost(post.id)">
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </div>

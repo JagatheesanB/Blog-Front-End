@@ -1,20 +1,4 @@
-/* .icon-arrow {
-    vertical-align: middle;
-    margin-left: 5px;
-  }
-  
-  .table-responsive {
-    overflow-x: auto;
-  }
-  
-  .table thead th {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: #343a40;
-    color: #fff;
-  }
-   */
+@import url("https://fonts.googleapis.com/css2?family=Marhey&family=Poppins&display=swap");
 
 /* Additional CSS for table styling and animation */
 .table {
@@ -80,4 +64,14 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+}
+
+.post-title {
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.post-content {
+  line-height: 1.6;
+  font-family: "Poppins", sans-serif;
 }

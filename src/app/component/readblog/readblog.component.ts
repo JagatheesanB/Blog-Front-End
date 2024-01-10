@@ -38,12 +38,12 @@ export class ReadblogComponent implements OnInit {
       console.log(postId);
       if (postId) {
         this.getPostById(postId);
-        // this.loadPostAndComments(postId);
+        this.fetchComments(postId);
       }
     });
   }
 
-  fetchComments(): void {
+  fetchComment(): void {
     this.commentService.getComment().subscribe({
       next: (response: AppResponse) => {
         if (response && response.data) {
@@ -59,24 +59,21 @@ export class ReadblogComponent implements OnInit {
     });
   }
 
-  // loadPostAndComments(postId: number) {
-  //   this.getPostById(postId);
-  //    this.fetchCommentsForPost(postId);
-  // }
-
-  // fetchCommentsForPost(postId: number) {
-  //   this.commentService.getCommentsByPostId(postId).subscribe({
-  //     next: (response: any) => {
-  //       if (response && response.data) {
-  //         this.Comments = response.data;
-  //       }
-  //     },
-  //     error: (err) => {
-  //       console.error('An error occurred while fetching comments:', err);
-  //     },
-  //     complete: () => console.log('Comment fetching completed.'),
-  //   });
-  // }
+  fetchComments(postId: number): void {
+    this.commentService.getCommentsByPostId(postId).subscribe({
+      next: (response: AppResponse) => {
+        if (response && response.data) {
+          this.Comments = response.data;
+        } else {
+          console.error('Invalid API response format:', response);
+        }
+      },
+      error: (err) => {
+        console.log('An error occurred:', err);
+      },
+      complete: () => console.log('There are no more actions happening.'),
+    });
+  }
 
   getPostById(postId: number) {
     console.log('called');
@@ -98,18 +95,6 @@ export class ReadblogComponent implements OnInit {
     });
   }
 
-  // getPostById(postId: number): void {
-  //   this.postService.getPostById(postId).subscribe(
-  //     (response) => {
-  //       this.post = response.data.posts[0];
-  //       console.log(response.data);
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching post:', error);
-  //     }
-  //   );
-  // }
-
   addComment(form: NgForm) {
     const loggedInUser = this.storageService.getLoggedInUser();
     if (loggedInUser && loggedInUser.id) {
@@ -125,7 +110,7 @@ export class ReadblogComponent implements OnInit {
             this.Comments.push(response.data);
             this.newComment = '';
             form.resetForm();
-            this.fetchComments();
+            this.fetchComment();
           }
         },
         error: (err) => {

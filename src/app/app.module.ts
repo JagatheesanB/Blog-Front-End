@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import player from 'lottie-web';
 import { LottieModule } from 'ngx-lottie';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AdminHomeComponent } from './component/admin/home/home.component';
 import { LoaderInterceptorService } from './service/interceptor/loaderInterceptor.service';
@@ -24,6 +25,7 @@ import { UserComponent } from './component/admin/user/user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostDetailsComponent } from './component/admin/post-details/post-details.component';
 import { LoadmoreComponent } from './component/loadmore/loadmore.component';
+import {SelectRequiredValidatorDirective} from'./component/shared/input-required-validator.directive';
 
 export function playerFactory() {
   return player;
@@ -44,6 +46,7 @@ export function playerFactory() {
     UserComponent,
     PostDetailsComponent,
     LoadmoreComponent,
+    SelectRequiredValidatorDirective,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,8 @@ export function playerFactory() {
     HttpClientModule,
     LottieModule.forRoot({ player: playerFactory }),
     BrowserAnimationsModule,
+    NgxPaginationModule,
+
   ],
   providers: [
     {

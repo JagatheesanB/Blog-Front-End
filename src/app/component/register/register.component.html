@@ -44,8 +44,7 @@
               name="name"
               ngModel
               required
-              minlength="3"
-              maxlength="15"
+              appNameValidator
               #Namevalid="ngModel"
               [(ngModel)]="UserName"
               [ngClass]="
@@ -54,7 +53,10 @@
                   : ''
               "
             />
-            <div *ngIf="Namevalid.invalid" class="invalid-feedback">
+            <div
+              *ngIf="Namevalid.invalid&&Namevalid.dirty||Namevalid.errors?.['validName']"
+              class="invalid-feedback"
+            >
               please enter the name min 3 characters
             </div>
           </div>

@@ -18,4 +18,16 @@ export class StorageService {
   public removeLoggedInUser(): void {
     localStorage.removeItem('loggedInUser');
   }
+
+  setAuthData(authData: string): void {
+    localStorage.setItem('AuthData', authData);
+  }
+
+  public getAuthData(): string | null {
+    return localStorage.getItem('AuthData');
+  }
+
+  public removeAuthData(): void {
+    localStorage.removeItem('AuthData');
+  }
 }

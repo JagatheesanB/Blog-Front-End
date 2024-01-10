@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit {
   navigateToPost(postId: number) {
     this.postService.getPostById(postId).subscribe(
       (response) => {
-        console.log(response);
+        // console.log(response);
         this.router.navigate(['/readblog', postId]);
       },
       (error) => {
@@ -123,7 +123,6 @@ export class HomeComponent implements OnInit {
 
     this.showAnimation = this.posts.length === 0;
 
-    // Toggle the visibility of buttons based on the search condition
     this.showButtons = !this.search.trim();
   }
 

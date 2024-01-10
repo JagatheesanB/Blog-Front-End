@@ -1,12 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Marhey&family=Poppins&display=swap");
+
 .btn-group {
-    margin-left: 88%;
-  }
-  
-  .sort {
-    width: 100px;
-    height: 30px;
-    margin-top: 30px;
-    background-color: black;
-    color: white;
-    border-radius: 10px;
-  }
+  margin-left: 88%;
+}
+
+.sort {
+  width: 100px;
+  height: 30px;
+  margin-top: 30px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+
+.post-title {
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.post-content {
+  line-height: 1.6;
+  font-family: "Poppins", sans-serif;
+}

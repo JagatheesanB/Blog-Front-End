@@ -74,16 +74,8 @@ export class CreateblogComponent {
       this.showAnimation = false;
     }, 1000);
 
-    // this.showAnimation = true;
-
-    // setTimeout(() => {
-    //   this.showAnimation = false;
-    //   this.showSuccessToast = true;
-    // }, 1000);
-
-    // setTimeout(() => {
-    //   this.showSuccessToast = false;
-    // }, 5000);
+    // alert("Posted Successfully!!!")
+    
   }
 
   hideToast() {
